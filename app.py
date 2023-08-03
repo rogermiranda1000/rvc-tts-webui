@@ -35,7 +35,7 @@ edge_output_filename = "edge_output.mp3"
 tts_voice_list = asyncio.get_event_loop().run_until_complete(edge_tts.list_voices())
 tts_voices = [f"{v['ShortName']}-{v['Gender']}" for v in tts_voice_list]
 
-model_root = "weights"
+model_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "weights")
 models = [
     d for d in os.listdir(model_root) if os.path.isdir(os.path.join(model_root, d))
 ]
